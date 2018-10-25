@@ -43,6 +43,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.thefinestartist.finestwebview.FinestWebView;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -120,9 +122,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"Register at our website",Toast.LENGTH_LONG).show();
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse("http://takshak.in"));
-                startActivity(i);
+                new FinestWebView.Builder(LoginActivity.this).show("http://takshak.in");
             }
         });
         mPasswordView = (EditText) findViewById(R.id.password);
